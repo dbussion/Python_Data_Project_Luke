@@ -21,6 +21,10 @@ plt.show()
 
 ### Results
 
-![Visualization of top skill in most demanded data roles in Spain](3_PROJECT\images\Top_skills_in_most_demanded_data_roles_.png)
+![Visualization of top skill in most demanded data roles in Spain](images/Top_skills_in_most_demanded_data_roles_.png)
 
+
+### Insights
+
+Across data roles, SQL is the universal foundation, Python is indispensable, BI tools define analysts, and cloud/big data skills distinguish engineers, while data scientists rely most on Python with some support from SQL and R.
 
