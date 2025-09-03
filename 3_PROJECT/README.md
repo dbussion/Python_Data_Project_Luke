@@ -61,7 +61,7 @@ In 2023, SQL clearly dominated job postings for data analysts in Spain, consiste
 
 ### Salary Analysis
 
-### Visualize Data
+#### Visualize Data
 
 '''python
 sns.boxplot(data=df_SPA_top6, x='salary_year_avg', y='job_title_short', order=job_order)
@@ -77,12 +77,38 @@ plt.show()
 
 '''
 
-### Results
+#### Results
 
 ![Salary Distributions of Data Jobs in Spain in 2023](images/Salary_Distributions_Spain_.png)
 *Box plot visualizing the salary distributions for the top 6 data job titles.*
 
-### Insights
+#### Insights
 
 The salary distribution plot for data-related roles in Spain highlights distinct patterns across job categories. Senior Data Engineers and Data Engineers occupy the higher salary ranges, with most earnings clustered around USD 100K–150K, indicating that engineering-focused roles are among the best compensated. Machine Learning Engineers also demonstrate broad salary variability, with a distribution stretching beyond USD 200K, reflecting both strong demand and specialized skill premiums. Data Scientists show a narrower spread, generally below USD 120K, though a few outliers suggest occasional high-paying opportunities. In contrast, Data Analysts and Senior Data Analysts earn comparatively lower salaries, mostly concentrated between USD 60K–100K, with fewer upper outliers, underscoring their relatively modest pay scale within the data profession. Overall, the hierarchy suggests that engineering and machine learning expertise command the highest rewards, while analytical roles, despite their prevalence, remain less lucrative in the Spanish market.
 
+### Highest paid and most demanded skills for Data Analysts in Spain in 2023
+
+#### Visualize Data
+
+'''python
+
+fig, ax = plt.subplots(2, 1)
+
+sns.barplot(data=df_DA_top_pay, x='median', y=df_DA_top_pay.index, ax=ax[0], hue='median', palette='dark:b_r')
+ax[0].legend().remove()
+
+sns.barplot(data=df_DA_top_skills, x='median', y=df_DA_top_skills.index, ax=ax[1], hue='median', palette='light:b')
+ax[1].legend().remove()
+
+plt.show() 
+
+
+
+#### Results
+
+![The highest paid and most in-demand skills for Data Analysts in Spain in 2023](images/Top_paid_and_top_in-demand_skills_DA_SPA_2023_.png)
+
+
+#### Insights
+
+The comparison between highest-paid and most in-demand skills for data analysts in Spain reveals a striking divergence between market value and popularity. On the salary side, specialized tools and programming environments such as **Smartsheet, SAP, and npm** command the highest median pay, with Smartsheet standing out significantly above the rest at nearly USD 160K, highlighting the premium for niche enterprise and workflow management expertise. Other high-paying skills, including **Node.js, React, Angular, and scikit-learn**, emphasize the value of software engineering and machine learning integration within analytics roles. Conversely, the most in-demand skills reflect the everyday toolkit of data analysts: **Looker, Pandas, Jupyter, and Python** dominate job postings, underscoring the centrality of data manipulation, visualization, and scripting in practice. Widely adopted platforms such as **SQL, Excel, Power BI, and Tableau** remain highly requested but are associated with comparatively lower pay, suggesting their ubiquity reduces wage differentiation. Collectively, this contrast shows that employers most frequently seek mainstream, accessible tools, yet the highest compensation is reserved for rarer, more technical, or enterprise-focused skillsets.
