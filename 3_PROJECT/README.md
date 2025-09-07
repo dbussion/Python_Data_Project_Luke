@@ -1,3 +1,32 @@
+# Overview
+
+This project explores the demand, salary, and optimal skills for the top data roles in Spain in 2023. By combining job posting data with salary information, the analysis identifies which skills are essential, trending, well-compensated, and most strategic for data analysts in the Spanish labor market.
+
+
+# Background
+
+The Spanish data job market is dynamic, shaped by both traditional business intelligence tools and modern programming, cloud, and machine learning skills. To assess this landscape, the project examined:
+
+The most demanded skills for the top 3 data roles.
+
+Yearly trends in analyst skill requirements.
+
+Salary distributions across key data jobs.
+
+The alignment (or mismatch) between skill demand and pay.
+
+The most “optimal” skills combining demand with salary outcomes.
+
+
+# Tools Used
+
+Python (pandas, seaborn, matplotlib) for data wrangling and visualization.
+
+Jupyter Notebooks for exploration and documentation.
+
+Dataset: “lukebarousse/data_jobs” from Hugging Face.
+
+
 # The Analysis
 
 ## 1. What are the most demanded skills for the top 3 most popular data roles in Spain?
@@ -112,3 +141,83 @@ plt.show()
 #### Insights
 
 The comparison between highest-paid and most in-demand skills for data analysts in Spain reveals a striking divergence between market value and popularity. On the salary side, specialized tools and programming environments such as **Smartsheet, SAP, and npm** command the highest median pay, with Smartsheet standing out significantly above the rest at nearly USD 160K, highlighting the premium for niche enterprise and workflow management expertise. Other high-paying skills, including **Node.js, React, Angular, and scikit-learn**, emphasize the value of software engineering and machine learning integration within analytics roles. Conversely, the most in-demand skills reflect the everyday toolkit of data analysts: **Looker, Pandas, Jupyter, and Python** dominate job postings, underscoring the centrality of data manipulation, visualization, and scripting in practice. Widely adopted platforms such as **SQL, Excel, Power BI, and Tableau** remain highly requested but are associated with comparatively lower pay, suggesting their ubiquity reduces wage differentiation. Collectively, this contrast shows that employers most frequently seek mainstream, accessible tools, yet the highest compensation is reserved for rarer, more technical, or enterprise-focused skillsets.
+
+
+
+## 4. What is the most optimal skill to learn for Data Analysts in Spain in 2023?
+
+### Visualize Data
+
+'''python
+
+from adjustText import adjust_text
+from matplotlib.ticker import PercentFormatter
+
+df_DA_skills_high_demand.plot(kind='scatter', x='skill_percent', y='median_salary')
+
+texts = []
+
+for i, txt in enumerate(df_DA_skills_high_demand.index):
+    texts.append(plt.text(df_DA_skills_high_demand['skill_percent'].iloc[i], df_DA_skills_high_demand['median_salary'].iloc[i], txt))
+
+adjust_text(texts, arrowprops=dict(arrowstyle="->", color='r', lw=0.5))
+
+ax = plt.gca()
+
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K'))
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+plt.show()
+
+'''
+
+### Results
+
+![Most optimal skills for Data Analysts in Spain in 2023](images/Most_optimal_skills_DA_SPA_2023_.png)
+*Scatter plot visualizing the most optimal skills (pay X demand) for data analytst in Spain in 2023.*
+
+
+### Insights
+
+This chart shows the most optimal skills for data analysts in Spain, balancing both salary outcomes and market demand.
+
+SQL and Python stand out as the most demanded skills, required by nearly half of data analyst roles. SQL, in particular, dominates with >50% demand, though the salary premium is moderate (~$95K). These remain essential baseline competencies.
+
+Analyst tools such as Tableau offer a strong balance, with ~30% demand and ~$98K salaries, making them highly attractive for employability and decent pay.
+
+High-paying but niche skills include Looker, Pandas, and Jupyter, which command ~$105–110K but appear in only ~10–15% of postings. These are valuable differentiators for analysts aiming at specialized or more technical roles.
+
+Cloud and infrastructure skills like Snowflake (~$90K, ~10% demand) provide an additional layer of competitiveness, though they are not yet mainstream.
+
+In contrast, traditional tools such as Excel, Power BI, and Word show relatively low salaries (~$72–77K) and limited demand (<20%), indicating they are less optimal as differentiators, though still relevant in some entry-level or support contexts.
+
+CONCLUSION: To maximize both employability and compensation in Spain, analysts should build strong foundations in SQL and Python, complement them with Tableau for versatility, and then strategically add high-paying but niche skills like Looker or Pandas to gain an edge.
+
+
+# Main Learning
+
+SQL is the universal baseline skill across roles.
+
+Python is indispensable for analysts and scientists.
+
+BI tools (Tableau, Power BI) remain central but show diverging trends.
+
+Cloud/big data tools (Snowflake, Airflow) are emerging differentiators.
+
+Salary premiums favor specialized or niche technical skills (e.g., Looker, Smartsheet, npm) rather than mainstream tools.
+
+# Insights
+
+Demand vs. Pay Mismatch: Employers seek mainstream tools like SQL, Python, and Excel most often, yet these pay less due to ubiquity.
+
+High-Pay, Low-Demand Skills: Skills like Smartsheet, Looker, or React command salaries >$100K but appear in <15% of postings, marking them as niche differentiators.
+
+Trends: SQL and Python remain stable anchors; Power BI shows volatility with episodic demand spikes; Excel continues to decline.
+
+Role Salaries: Engineers (data and ML) consistently earn more than analysts, with senior engineers at the top of the range.
+
+# Final Conclusion
+
+For data analysts in Spain, the optimal career strategy is to master SQL and Python as core foundations, strengthen versatility with Tableau, and strategically add niche, high-paying skills such as Looker, Pandas, or Snowflake. This layered skillset maximizes both employability and salary potential.
+
+*Credit: This project was guided step-by-step by Luke Barousse’s Python for Data Analytics – Full Course for Beginners, which provided both the dataset and foundational methods for data analysis.*
