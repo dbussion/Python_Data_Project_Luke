@@ -36,7 +36,7 @@ To find the most demanded skills for the top 3 most popular data roles in Spain.
 
 ### Visualize Data
 
-'''python
+```python
 fig, ax = plt.subplots(len(job_titles), 1)
 
 sns.set_theme(style='ticks')
@@ -45,7 +45,7 @@ for i, job_title in enumerate(job_titles):
     sns.barplot(data=df_plot, x='skills_percent', y='job_skills', ax=ax[i], hue='skill_count', palette='dark:b_r')
 
 plt.show()
-'''
+```
 
 ### Results
 
@@ -62,7 +62,7 @@ Across data roles, SQL is the universal foundation, Python is indispensable, BI 
 
 ### Visualize Data
 
-'''python
+```python
 
 from matplotlib.ticker import PercentFormatter
 
@@ -74,7 +74,7 @@ sns.despine()
 
 plt.show()
 
-'''
+```
 
 ![Trending Top Skills for Data Analysts in Spain in 2023](images/Trending_top_skills_DA_SPA_2023_.png)
 
@@ -91,7 +91,7 @@ In 2023, SQL clearly dominated job postings for data analysts in Spain, consiste
 
 #### Visualize Data
 
-'''python
+```python
 sns.boxplot(data=df_SPA_top6, x='salary_year_avg', y='job_title_short', order=job_order)
 sns.set_theme(style='ticks')
 
@@ -103,7 +103,7 @@ ticks_x =plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
 plt.gca().xaxis.set_major_formatter(ticks_x)
 plt.show() 
 
-'''
+```
 
 #### Results
 
@@ -118,7 +118,7 @@ The salary distribution plot for data-related roles in Spain highlights distinct
 
 #### Visualize Data
 
-'''python
+```python
 
 fig, ax = plt.subplots(2, 1)
 
@@ -129,7 +129,7 @@ sns.barplot(data=df_DA_top_skills, x='median', y=df_DA_top_skills.index, ax=ax[1
 ax[1].legend().remove()
 
 plt.show() 
-
+```
 
 
 #### Results
@@ -147,7 +147,7 @@ The comparison between highest-paid and most in-demand skills for data analysts 
 
 ### Visualize Data
 
-'''python
+```python
 
 from adjustText import adjust_text
 from matplotlib.ticker import PercentFormatter
@@ -168,7 +168,7 @@ ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
 
 plt.show()
 
-'''
+```
 
 ### Results
 
